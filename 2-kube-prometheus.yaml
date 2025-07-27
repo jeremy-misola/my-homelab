@@ -1,9 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus.yaml
+  name: kube-prometheus-stack
+  namespace: argocd
 spec: 
-  project: kube-prometheus.yaml
+  project: default
   source:
     path: 2-prometheus
     repoURL: https://github.com/jeremy-misola/my-homelab

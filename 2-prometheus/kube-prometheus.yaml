@@ -3,6 +3,7 @@ kind: Kustomization
 
 helmCharts:
   - name: kube-prometheus-stack
-    repo: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+    repo: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack 
     releaseName: kube-prometheus-stack
     valuesFile: values.yaml
+    namespace: monitoring
