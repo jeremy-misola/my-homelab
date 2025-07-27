@@ -9,6 +9,8 @@ spec:
     path: 2-prometheus
     repoURL: https://github.com/jeremy-misola/my-homelab
     targetRevision: HEAD
+    kustomize:
+      enableHelm: true
   destination:
     namespace: monitoring
     server: 'https://kubernetes.default.svc'
