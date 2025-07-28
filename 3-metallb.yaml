@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb-setup
+  namespace: argocd
+spec:
+  project: default
+  sources: 
+    - repoURL: https://github.com/jeremy-misola/my-homelab.git
+      targetRevision: HEAD
+      path: 3-metallb
+    - repoURL: https://github.com/metallb/metallb
+      targetRevision: main
+      path: config/manifests
+      directory: 
+        include: metallb-native.yaml
+  destination:
+    server: https://kubernetes.default.svc
