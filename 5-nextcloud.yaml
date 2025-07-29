@@ -5,12 +5,53 @@ metadata:
   namespace: argocd
 spec: 
   project: default
-  source:
-    repoURL: https://nextcloud.github.io/helm/
+  sources:
+
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  - repoURL: https://nextcloud.github.io/helm/
     chart: nextcloud
     targetRevision: "7.0.0"
+    helm:
+      valueFiles:
+      - $values/5-nextcloud/values.yaml
   destination:
     namespace: nextcloud
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+
+
+
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec: 
+  project: default
+  sources:
+  - repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: "58.2.0"
+    helm:
+      valueFiles:
+      - $values/2-prometheus/values.yaml
+    
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: monitoring
     server: 'https://kubernetes.default.svc'
   syncPolicy:
     syncOptions:
