@@ -1,0 +1,15 @@
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hostname: blog.kube.home
+  annotations: {}
+persistence:
+  enabled: false
+mariadb:
+  enabled: true
+  primary:
+    persistence:
+      enabled: false
+service:
+  type: ClusterIP
+

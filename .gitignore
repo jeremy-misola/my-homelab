@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / tooling
+node_modules/
+dist/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+

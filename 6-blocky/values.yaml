@@ -1,0 +1,18 @@
+config:
+  upstream:
+    default:
+    - 1.1.1.1
+    - 8.8.8.8
+  blocking:
+    enabled: true
+service:
+  type: LoadBalancer
+  port: 53
+  annotations: {}
+  externalTrafficPolicy: Local
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+deployment:
+  replicas: 1
+

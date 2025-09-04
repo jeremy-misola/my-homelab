@@ -1,0 +1,16 @@
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hostname: ghost.kube.home
+  annotations: {}
+service:
+  type: ClusterIP
+persistence:
+  enabled: false
+mysql:
+  enabled: true
+  architecture: standalone
+  primary:
+    persistence:
+      enabled: false
+

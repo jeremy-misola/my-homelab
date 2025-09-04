@@ -1,0 +1,173 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blocky
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://0xerr0r.github.io/blocky/
+    chart: blocky
+    helm:
+      valueFiles:
+      - $values/6-blocky/values.yaml
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: blocky
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gatus
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://charts.gatus.io/
+    chart: gatus
+    helm:
+      valueFiles:
+      - $values/6-gatus/values.yaml
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: gatus
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: wordpress
+    helm:
+      valueFiles:
+      - $values/6-wordpress/values.yaml
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: wordpress
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ghost
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: ghost
+    helm:
+      valueFiles:
+      - $values/6-ghost/values.yaml
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: ghost
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: redis
+    helm:
+      valueFiles:
+      - $values/6-redis/values.yaml
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: redis
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://charts.bitnami.com/bitnami
+    chart: postgresql
+    helm:
+      valueFiles:
+      - $values/6-postgresql/values.yaml
+  - repoURL: 'https://github.com/jeremy-misola/my-homelab.git'
+    targetRevision: HEAD
+    ref: values
+  destination:
+    namespace: postgresql
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: true
+
+

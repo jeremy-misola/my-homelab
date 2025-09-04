@@ -1,0 +1,13 @@
+auth:
+  enablePostgresUser: true
+  database: app
+  username: app
+  password: app-password
+primary:
+  persistence:
+    enabled: false
+readReplicas:
+  replicaCount: 0
+metrics:
+  enabled: false
+

@@ -1,0 +1,21 @@
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+  - host: gatus.kube.home
+    paths:
+    - path: /
+      pathType: Prefix
+service:
+  type: ClusterIP
+config:
+  storage:
+    type: sqlite
+  endpoints:
+  - name: nextcloud
+    group: internal
+    url: http://nextcloud.nextcloud.svc.cluster.local:8080/
+    interval: 1m
+    conditions:
+    - '[STATUS] == 200'
+
