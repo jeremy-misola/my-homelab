@@ -17,13 +17,6 @@ This repository contains the Kubernetes manifests and Helm values I use to opera
 - **Observability**: Prometheus Operator stack, Grafana
 - **Applications**: Nextcloud; Blocky (DNS), Gatus (uptime), WordPress, Ghost, Redis, PostgreSQL
 
-### CV-friendly summary (truthful)
-- Administer a Proxmox VE host with a mix of VMs and containers.
-- Operate a lightweight k3s cluster running multiple self-hosted applications.
-- Provide internal DNS-based service discovery in the home network.
-- Deploy and maintain a Nextcloud instance for reliable personal cloud storage.
-
-No claims beyond what is represented here: uptime, node counts, and application totals vary over time in a homelab setting.
 
 ### Repository layout
 ```
