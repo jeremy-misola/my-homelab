@@ -36,7 +36,8 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: https://charts.gatus.io/
+  - repoURL: https://twin.github.io/helm-charts
+    targetRevision: 1.4.2
     chart: gatus
     helm:
       valueFiles:
