@@ -6,7 +6,8 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: https://0xerr0r.github.io/blocky/
+  - repoURL: https://k8s-at-home.com/charts/
+    targetRevision: 10.5.2
     chart: blocky
     helm:
       valueFiles:
